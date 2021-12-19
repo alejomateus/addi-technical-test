@@ -1,0 +1,119 @@
+<div class="row">
+  <div class="col-xs-05 col-sm-2 col-md-4 col-lg-4"></div>
+  <div class="col-xs-11 col-sm-8 col-md-4 col-lg-4">
+    <form class="form" novalidate [formGroup]="formValidation">
+      <div class="title">
+        <h3>{{'title' | translate }}</h3>
+        <br>
+      </div>
+      <div class="form-input">
+        <span>{{'identification_type' | translate}}</span>
+        <select name="identificationType" formControlName="identificationType"
+          [ngClass]="{'error-input': formValidation.get('identificationType')?.errors && (formValidation.get('identificationType')?.touched ||formValidation.get('identificationType')?.dirty )}">
+          <option [value]="item.value" *ngFor="let item of identificationTypes">{{item.description}}</option>
+        </select>
+      </div>
+      <div class="form-errors" *ngFor="let validation of validationMessages.identificationType">
+        <span *ngIf="formValidation.get('identificationType')?.hasError(validation.type)
+        && (formValidation.get('identificationType')?.dirty
+        || formValidation.get('identificationType')?.touched)">
+          {{ validation.message | translate }}
+        </span>
+      </div>
+      <div class="form-input">
+        <span>{{'identification_number' | translate}}</span>
+        <input type="text" formControlName="identificationNumber"
+          [ngClass]="{'error-input': formValidation.get('identificationNumber')?.errors && (formValidation.get('identificationNumber')?.touched ||formValidation.get('identificationNumber')?.dirty )}">
+      </div>
+      <div class="form-errors" *ngFor="let validation of validationMessages.identificationNumber">
+        <span *ngIf="formValidation.get('identificationNumber')?.hasError(validation.type)
+        && (formValidation.get('identificationNumber')?.dirty
+        || formValidation.get('identificationNumber')?.touched)">
+          {{ validation.message | translate }}
+        </span>
+      </div>
+
+      <div class="form-input">
+        <span>{{'names' | translate}}</span>
+        <input type="text" formControlName="names"
+          [ngClass]="{'error-input': formValidation.get('names')?.errors && (formValidation.get('names')?.touched ||formValidation.get('names')?.dirty )}">
+      </div>
+      <div class="form-errors" *ngFor="let validation of validationMessages.names">
+        <span *ngIf="formValidation.get('names')?.hasError(validation.type)
+        && (formValidation.get('names')?.dirty
+        || formValidation.get('names')?.touched)">
+          {{ validation.message | translate }}
+        </span>
+      </div>
+
+      <div class="form-input">
+        <span>{{'lastnames' | translate}}</span>
+        <input type="text" formControlName="lastnames"
+          [ngClass]="{'error-input': formValidation.get('lastnames')?.errors && (formValidation.get('lastnames')?.touched ||formValidation.get('lastnames')?.dirty )}">
+      </div>
+      <div class="form-errors" *ngFor="let validation of validationMessages.lastnames">
+        <span *ngIf="formValidation.get('lastnames')?.hasError(validation.type)
+        && (formValidation.get('lastnames')?.dirty
+        || formValidation.get('lastnames')?.touched)">
+          {{ validation.message | translate }}
+        </span>
+      </div>
+      <div class="form-input">
+        <span>{{'email' | translate}}</span>
+        <input type="email" formControlName="email"
+          [ngClass]="{'error-input': formValidation.get('email')?.errors && (formValidation.get('email')?.touched ||formValidation.get('email')?.dirty )}">
+      </div>
+      <div class="form-errors" *ngFor="let validation of validationMessages.email">
+        <span *ngIf="formValidation.get('email')?.hasError(validation.type)
+        && (formValidation.get('email')?.dirty
+        || formValidation.get('email')?.touched)">
+          {{ validation.message | translate }}
+        </span>
+      </div>
+      <div class="form-input">
+        <span>{{'phoneNumber' | translate}}</span>
+        <input type="text" formControlName="phoneNumber"
+          [ngClass]="{'error-input': formValidation.get('phoneNumber')?.errors && (formValidation.get('phoneNumber')?.touched ||formValidation.get('phoneNumber')?.dirty ) }">
+      </div>
+      <div class="form-errors" *ngFor="let validation of validationMessages.phoneNumber">
+        <span *ngIf="formValidation.get('phoneNumber')?.hasError(validation.type)
+        && (formValidation.get('phoneNumber')?.dirty
+        || formValidation.get('phoneNumber')?.touched)">
+          {{ validation.message | translate }}
+        </span>
+      </div>
+      <div class="form-input">
+        <span>{{'birthDate' | translate}}</span>
+        <input type="date" class="input" formControlName="birthDate" placeholder=""
+          [ngClass]="{'error-input': formValidation.get('birthDate')?.errors && (formValidation.get('birthDate')?.touched ||formValidation.get('birthDate')?.dirty )}">
+      </div>
+      <div class="form-errors" *ngFor="let validation of validationMessages.birthDate">
+        <span *ngIf="formValidation.get('birthDate')?.hasError(validation.type)
+          && (formValidation.get('birthDate')?.dirty
+          || formValidation.get('birthDate')?.touched)">
+          {{ validation.message | translate }}
+        </span>
+      </div>
+      <div class="space"></div>
+      <div class="button-container">
+        <button class="checkButton" [disabled]="formValidation.invalid" (click)="checkCustomerData()">
+          <span *ngIf="!loading">Verificar</span>
+          <div class="loader" *ngIf="loading">
+          </div>
+        </button>
+      </div>
+      <div class="incorrect-validation"
+        *ngIf="formValidation.valid && ( score <= 60 || prospect == false || personJudicialRecords.length>0)">
+        <span *ngIf="prospect == false"> No te encontramos en nuestros registros </span>
+        <span *ngIf="personJudicialRecords.length>0"> Encontramos algunos reportes judiciales, esto te impide continuar
+        </span>
+        <span *ngIf="score <= 60"> Tu puntaje obtenido no es suficiente</span>
+      </div>
+      <div class="correct-validation"
+        *ngIf="formValidation.valid && ( score > 60 && prospect == true && personJudicialRecords.length == 0)">
+        <span>{{'btn_continue' | translate}}</span>
+      </div>
+    </form>
+  </div>
+  <div class="col-xs-05 col-sm-2 col-md-4 col-lg-4"></div>
+</div>

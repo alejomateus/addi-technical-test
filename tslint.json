@@ -1,0 +1,45 @@
+{
+  "extends": [
+    "tslint-clean-code",
+    "tslint-plugin-prettier",
+    "tslint-config-prettier",
+    "tslint:latest"
+  ],
+  "rulesDirectory": [
+    "codelyzer"
+  ],
+  "rules": {
+    "only-arrow-functions": false ,
+    "prettier": true,
+    "import-spacing": true,
+    "indent": [
+      true,
+      "spaces"
+    ],
+    "member-access": false,
+    "no-submodule-imports": false,
+    "no-implicit-dependencies": [
+      false,
+      "dev"
+    ],
+    "object-literal-sort-keys": false,
+    "no-empty": false
+  },
+  "linterOptions": {
+    "exclude": [
+      "polyfills.ts"
+    ]
+  },
+  "no-inferrable-types": [true,"ignore-params","ignore-properties"],
+  "typedef": [true,
+    "call-signature",
+    "arrow-call-signature",
+    "parameter",
+    "arrow-parameter",
+    "property-declaration",
+    "variable-declaration",
+    "variable-declaration-ignore-function",
+    "member-variable-declaration",
+    "object-destructuring",
+    "array-destructuring"]
+  }

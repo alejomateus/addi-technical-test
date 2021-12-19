@@ -1,0 +1,48 @@
+@import "./../../../../styles/media-content.scss";
+
+img{
+  width: 100px;
+}
+.header-container {
+  text-align: center;
+  padding: 10px 20px;
+}
+.languages{
+  select{
+    max-width: 100%;
+  }
+  padding: 10px 20px;
+  padding-top: 0px;
+  text-align: center;
+}
+
+@include media-mobile {
+  .languages{
+    select{
+      max-width: 100%;
+    }
+    padding: 10px 20px;
+    padding-top: 0px;
+    text-align: center;
+  }
+
+}
+@include media-tablet-portrait-up {
+  .languages{
+    select{
+      width: 100px;
+    }
+    padding-right: 20px;
+    text-align: right;
+  }
+}
+
+@include media-desktop {
+  .languages{
+    select{
+      width: 100px;
+    }
+    padding-right: 20px;
+    text-align: right;
+  }
+}

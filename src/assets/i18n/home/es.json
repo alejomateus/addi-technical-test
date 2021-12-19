@@ -1,0 +1,36 @@
+{
+  "title": "Formulario de validacion de prospectos",
+  "identification_type": "Tipo de Identificación",
+  "identification_number": "Numero de identificación",
+  "names": "Nombres",
+  "lastnames": "Apellidos",
+  "email": "Correo",
+  "phoneNumber": "Numero de telefono",
+  "birthDate": "Fecha de nacimiento",
+  "btn_continue": "Verificar",
+  "form_errors": {
+    "identificationType": {
+      "required": "Debe ingresar el tipo de identificación"
+    },
+    "identificationNumber": {
+      "required": "Debe ingresar el numero de identificación"
+    },
+    "name": {
+      "required": "Debe ingresar el nombre"
+    },
+    "lastname": {
+      "required": "Debe ingresar el apellido"
+    },
+    "email": {
+      "required": "Debe ingresar el email",
+      "pattern": "Debe ingresar un email valido"
+    },
+    "phoneNumber": {
+      "required": "Debe ingresar el numero de telefono",
+      "pattern": "Debe ingresar un numero de telefono valido"
+    },
+    "birthDate": {
+      "required": "Debe ingresar la fecha de nacimiento"
+    }
+  }
+}

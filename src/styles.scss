@@ -1,1 +1,304 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./styles/variables.scss";
+@import "./styles/fonts.scss";
+@import "./styles/media-content.scss";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: SofiaProLight, sans-serif;
+}
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+  width: 100%;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 1px;
+}
+
+/* For mobile phones: */
+[class*="col-"] {
+  width: 100%;
+}
+@include media-mobile {
+  .col-xs-05 {
+    width: 4.16%;
+  }
+  .col-xs-1 {
+    width: 8.33%;
+  }
+  .col-xs-2 {
+    width: 16.66%;
+  }
+  .col-xs-3 {
+    width: 25%;
+  }
+  .col-xs-4 {
+    width: 33.33%;
+  }
+  .col-xs-5 {
+    width: 41.66%;
+  }
+  .col-xs-6 {
+    width: 50%;
+  }
+  .col-xs-7 {
+    width: 58.33%;
+  }
+  .col-xs-8 {
+    width: 66.66%;
+  }
+  .col-xs-9 {
+    width: 75%;
+  }
+  .col-xs-10 {
+    width: 83.33%;
+  }
+  .col-xs-11 {
+    width: 91.66%;
+  }
+  .col-xs-12 {
+    width: 100%;
+  }
+}
+@include media-tablet {
+  .col-sm-1 {
+    width: 8.33%;
+  }
+  .col-sm-2 {
+    width: 16.66%;
+  }
+  .col-sm-3 {
+    width: 25%;
+  }
+  .col-sm-4 {
+    width: 33.33%;
+  }
+  .col-sm-5 {
+    width: 41.66%;
+  }
+  .col-sm-6 {
+    width: 50%;
+  }
+  .col-sm-7 {
+    width: 58.33%;
+  }
+  .col-sm-8 {
+    width: 66.66%;
+  }
+  .col-sm-9 {
+    width: 75%;
+  }
+  .col-sm-10 {
+    width: 83.33%;
+  }
+  .col-sm-11 {
+    width: 91.66%;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
+}
+@include media-tablet-portrait-up {
+  .col-md-1 {
+    width: 8.33%;
+  }
+  .col-md-2 {
+    width: 16.66%;
+  }
+  .col-md-3 {
+    width: 25%;
+  }
+  .col-md-4 {
+    width: 33.33%;
+  }
+  .col-md-5 {
+    width: 41.66%;
+  }
+  .col-md-6 {
+    width: 50%;
+  }
+  .col-md-7 {
+    width: 58.33%;
+  }
+  .col-md-8 {
+    width: 66.66%;
+  }
+  .col-md-9 {
+    width: 75%;
+  }
+  .col-md-10 {
+    width: 83.33%;
+  }
+  .col-md-11 {
+    width: 91.66%;
+  }
+  .col-md-12 {
+    width: 100%;
+  }
+}
+@include media-desktop {
+  .col-lg-1 {
+    width: 8.33%;
+  }
+  .col-lg-2 {
+    width: 16.66%;
+  }
+  .col-lg-3 {
+    width: 25%;
+  }
+  .col-lg-4 {
+    width: 33.33%;
+  }
+  .col-lg-5 {
+    width: 41.66%;
+  }
+  .col-lg-6 {
+    width: 50%;
+  }
+  .col-lg-7 {
+    width: 58.33%;
+  }
+  .col-lg-8 {
+    width: 66.66%;
+  }
+  .col-lg-9 {
+    width: 75%;
+  }
+  .col-lg-10 {
+    width: 83.33%;
+  }
+  .col-lg-11 {
+    width: 91.66%;
+  }
+  .col-lg-12 {
+    width: 100%;
+  }
+}
+
+.footer {
+  background-color: #091a42;
+  color: #ffffff;
+  text-align: center;
+  font-size: 12px;
+  padding: 15px;
+  bottom: 0px;
+  position: absolute;
+  width: 100%;
+}
+
+.header {
+  color: #ffffff;
+  padding: 15px;
+  text-align: center;
+  img {
+    width: 100px;
+  }
+}
+.form-input {
+  padding: 10px 0px;
+}
+input {
+  margin-top: 5px;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #a9a8a8;
+  padding: 10px;
+  margin-left: 0px;
+  height: 48px;
+}
+select {
+  margin-top: 5px;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #a9a8a8;
+  padding: 10px;
+  height: 48px;
+  font-size: 15px;
+  &:focus {
+    background-image: linear-gradient(45deg, #000 50%, transparent 50%),
+      linear-gradient(135deg, transparent 50%, #000 50%);
+    background-position: calc(100% - 15px) 1.25em, calc(100% - 20px) 1.25em,
+      calc(100% - 2.5em) 0.5em;
+    background-size: 5px 5px, 5px 5px, 1px 1.5em;
+    background-repeat: no-repeat;
+    outline: 0;
+  }
+  background-image: linear-gradient(45deg, transparent 50%, #000 50%),
+    linear-gradient(135deg, #000 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(1.25em + 2px),
+    calc(100% - 15px) calc(1.25em + 2px), calc(100% - 2.5em) 0.5em;
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
+  background-repeat: no-repeat;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+button {
+  padding: 10px 10px;
+  width: 100%;
+  border: 0px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  height: 48px;
+  cursor: pointer;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border: 1px solid var(--color-blue);
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+  outline: none;
+  border: 1px solid var(--color-text-two);
+}
+.form-errors {
+  span {
+    color: var(--color-error);
+    font-size: 13px;
+    font-weight: bold;
+  }
+}
+.incorrect-validation {
+  padding: 15px;
+  text-align: center;
+  span {
+    padding: 5px;
+    color: var(--color-error);
+    font-size: 15px;
+    display: block;
+  }
+}
+.correct-validation {
+  padding: 15px;
+  text-align: center;
+  span {
+    text-transform: uppercase;
+    color: green;
+    font-size: 15px;
+    font-weight: bolder;
+  }
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.text-left {
+  text-align: left;
+}
+
+.error-input {
+  border: 1px solid var(--color-error);
+}

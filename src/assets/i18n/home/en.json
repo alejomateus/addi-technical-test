@@ -1,0 +1,36 @@
+{
+  "title": "Prospect validation form",
+  "identification_type": "Identification type",
+  "identification_number": "Identification number",
+  "names": "Names",
+  "lastnames": "Lastnames",
+  "email": "Email",
+  "phoneNumber": "Phone Number",
+  "birthDate": "Birth Date",
+  "btn_continue": "Verify",
+  "form_errors": {
+    "identificationType": {
+      "required": "You must enter the type of identification "
+    },
+    "identificationNumber": {
+      "required": "You must enter the identification number "
+    },
+    "name": {
+      "required": "You must enter the name "
+    },
+    "lastname": {
+      "required": "You must enter the last name "
+    },
+    "email": {
+      "required": "You must enter the email ",
+      "pattern": "You must enter a valid email "
+    },
+    "phoneNumber": {
+      "required": "You must enter the phone number ",
+      "pattern": "You must enter a valid phone number "
+    },
+    "birthDate": {
+      "required": "You must enter the date of birth "
+    }
+  }
+}

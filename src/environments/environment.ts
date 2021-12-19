@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  endPoints: {
+    persons: "/persons",
+    score: "/getScore",
+    judicial_records: "/judicial_records",
+    identificationTypes: "/identificationTypes"
+  },
+  url: "http://localhost:3000",
+  addiKey: "addiKey"
 };
 
 /*

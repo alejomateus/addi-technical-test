@@ -1,0 +1,54 @@
+.form {
+  padding: 20px;
+  border-top: 2px solid green;
+  border-bottom: 2px solid green;
+  border-left: 1px solid var(--color-disabled);
+  border-right: 1px solid var(--color-disabled);
+  border-radius: 10px;
+  .title {
+    text-align: center;
+    h3 {
+      font-weight: 600;
+      max-width: 300px;
+      color: var(--color-primary);
+      margin: auto;
+    }
+  }
+}
+.space {
+  padding: 5px;
+}
+.button-container {
+  margin: auto;
+  text-align: center;
+  .checkButton {
+    width: 50%;
+    color: #fff;
+    &:hover {
+      box-shadow: 0px 1px 10px 0px grey;
+    }
+  }
+}
+
+button:disabled {
+  background: #757575 !important;
+}
+.loader {
+  border           : 2px solid #fff;
+  border-top       : 2px solid #000;
+  border-radius    : 50%;
+  width            : 15px;
+  height           : 15px;
+  -webkit-animation: spin 1.5s linear infinite;
+  animation        : spin 1.5s linear infinite;
+  margin: auto;
+}
+@keyframes spin {
+  0% {
+      transform: rotate(0deg);
+  }
+
+  100% {
+      transform: rotate(360deg);
+  }
+}

@@ -1,8 +1,9 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
+  "strictNullChecks":false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -19,7 +20,30 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@app/*": [
+        "app/*"
+      ],
+      "@assets/*": [
+        "assets/*"
+      ],
+      "@environment": [
+        "environments/environment.ts"
+      ],
+      "@home/*": [
+        "app/modules/home/*"
+      ],
+      "@theme/*": [
+        "app/modules/theme/*"
+      ],
+      "@services/*": [
+        "app/services/*"
+      ],
+      "@store/*": [
+        "app/store/*"
+      ],
+    },
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
