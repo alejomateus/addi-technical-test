@@ -13,4 +13,8 @@ describe('UtilsService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+  it("should be toDateString", () => {
+    service.toDateString(new Date());
+    expect(service).toBeTruthy();
+  });
 });

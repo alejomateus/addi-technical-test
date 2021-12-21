@@ -1,11 +1,16 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import { ComponentFixture, inject, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AppFacade } from '@store/facades/app.facade';
+import { AppModelMock } from '@app/test-helpers/models/app.model.mock';
+import { TranslateModule } from '@ngx-translate/core';
 import { ValidationService } from '@services/validation.service';
 import { of } from 'rxjs';
 
 import { HomeComponent } from './home.component';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -13,20 +18,30 @@ describe('HomeComponent', () => {
   let validationService: ValidationService;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, HttpClientTestingModule],
+      imports: [ReactiveFormsModule, HttpClientTestingModule,
+        TranslateModule.forRoot(),
+        StoreModule.forRoot([]),
+        EffectsModule.forRoot(),
+      ],
       declarations: [HomeComponent],
-      providers: [],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA]
+      providers: [AppFacade,
+      ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
     })
       .compileComponents();
   });
 
-  beforeEach(() => {
+  beforeEach(inject([AppFacade], (appFacade: AppFacade) => {
+    appFacade.selectIdentificationType$ =
+      AppModelMock.selectIdentificationType$;
+    appFacade.selectIdentificationType2$ =
+      AppModelMock.selectIdentificationTypesData$;
+    appFacade.selectLanguage$ = AppModelMock.selectLanguage$;
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
     validationService = TestBed.inject(ValidationService);
-  });
+  }));
 
   it('should create', () => {
     expect(component).toBeTruthy();

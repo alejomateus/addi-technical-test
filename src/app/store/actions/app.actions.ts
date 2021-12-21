@@ -1,6 +1,6 @@
 import { createAction } from "@ngrx/store";
 
-export type Languages = "es" | "en";
+export type Languages = "es" | "en" | null;
 
 export const enum TypeActionsApp {
   languageChange = "[APP COMPONENT] translate lenguaje",

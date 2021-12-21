@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
         this.language = value ? value : 'es';
       });
   }
-  changeLanguage() {
+  changeLanguage(): void {
     this.appFacade.changeLanguaje(this.language);
   }
 
