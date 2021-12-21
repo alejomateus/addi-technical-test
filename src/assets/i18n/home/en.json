@@ -15,10 +15,10 @@
     "identificationNumber": {
       "required": "You must enter the identification number "
     },
-    "name": {
+    "names": {
       "required": "You must enter the name "
     },
-    "lastname": {
+    "lastnames": {
       "required": "You must enter the last name "
     },
     "email": {

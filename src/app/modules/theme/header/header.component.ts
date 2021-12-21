@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Languages } from '@app/store/actions/app.actions';
-import { AppFacade } from '@app/store/facades/app.facade';
+import { LanguagesSelect } from '@app/models/languages';
+import { Languages } from '@store/actions/app.actions';
+import { AppFacade } from '@store/facades/app.facade';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -13,16 +14,14 @@ export class HeaderComponent implements OnInit {
   destroy$: Subject<boolean> = new Subject<boolean>();
 
   language!: Languages;
-  languages: String[] = ["es", "en"];
+  languages: LanguagesSelect[] = [{ label: "Español", value: "es" }, { label: "English", value: "en" }];
   constructor(private appFacade: AppFacade) { }
 
   ngOnInit(): void {
     this.selectLanguage$
       .pipe(takeUntil(this.destroy$))
       .subscribe((value: Languages) => {
-        if (value) {
-          this.language = value;
-        }
+        this.language = value ? value : 'es';
       });
   }
   changeLanguage() {

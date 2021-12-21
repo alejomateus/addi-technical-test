@@ -185,7 +185,7 @@
   font-size: 12px;
   padding: 15px;
   bottom: 0px;
-  position: absolute;
+  position: fixed;
   width: 100%;
 }
 
@@ -249,9 +249,9 @@ button {
   height: 48px;
   cursor: pointer;
 }
-input:focus,
-select:focus,
-textarea:focus {
+input:focus:not(:hover),
+select:focus:not(:hover),
+textarea:focus:not(:hover) {
   outline: none;
   border: 1px solid var(--color-blue);
 }

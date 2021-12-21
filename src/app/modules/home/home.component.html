@@ -22,7 +22,7 @@
       </div>
       <div class="form-input">
         <span>{{'identification_number' | translate}}</span>
-        <input type="text" formControlName="identificationNumber"
+        <input type="number" formControlName="identificationNumber"
           [ngClass]="{'error-input': formValidation.get('identificationNumber')?.errors && (formValidation.get('identificationNumber')?.touched ||formValidation.get('identificationNumber')?.dirty )}">
       </div>
       <div class="form-errors" *ngFor="let validation of validationMessages.identificationNumber">
@@ -72,7 +72,7 @@
       </div>
       <div class="form-input">
         <span>{{'phoneNumber' | translate}}</span>
-        <input type="text" formControlName="phoneNumber"
+        <input type="number" formControlName="phoneNumber"
           [ngClass]="{'error-input': formValidation.get('phoneNumber')?.errors && (formValidation.get('phoneNumber')?.touched ||formValidation.get('phoneNumber')?.dirty ) }">
       </div>
       <div class="form-errors" *ngFor="let validation of validationMessages.phoneNumber">
@@ -102,16 +102,17 @@
           </div>
         </button>
       </div>
-      <div class="incorrect-validation"
-        *ngIf="formValidation.valid && ( score <= 60 || prospect == false || personJudicialRecords.length>0)">
-        <span *ngIf="prospect == false"> No te encontramos en nuestros registros </span>
-        <span *ngIf="personJudicialRecords.length>0"> Encontramos algunos reportes judiciales, esto te impide continuar
+      <div class="incorrect-validation" *ngIf="formValidation.valid && ( score && score <= 60 || (prospect && prospect == false) || personJudicialRecords
+        && personJudicialRecords.length>0)">
+        <span *ngIf="(prospect && prospect == false)"> No te encontramos en nuestros registros </span>
+        <span *ngIf="personJudicialRecords && personJudicialRecords.length>0"> Encontramos algunos reportes judiciales,
+          esto te impide continuar
         </span>
-        <span *ngIf="score <= 60"> Tu puntaje obtenido no es suficiente</span>
+        <span *ngIf="score && score <= 60"> Tu puntaje obtenido no es suficiente</span>
       </div>
       <div class="correct-validation"
-        *ngIf="formValidation.valid && ( score > 60 && prospect == true && personJudicialRecords.length == 0)">
-        <span>{{'btn_continue' | translate}}</span>
+        *ngIf="formValidation.valid && (score &&  score > 60 && (prospect && prospect == true) && personJudicialRecords && personJudicialRecords.length == 0)">
+        <span>Has pasado correctamente la validación</span>
       </div>
     </form>
   </div>

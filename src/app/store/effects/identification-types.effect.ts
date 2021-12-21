@@ -12,9 +12,9 @@ export class IdentificationTypesEffect {
       ofType(identificationTypesActions.identificationTypesLoad),
       switchMap(() =>
         this.identificationTypesService.getDocumentTypes().pipe(
-          map((documenTypes: any) =>
+          map(({identificationTypes}) =>
             identificationTypesActions.identificationTypesSave(
-              documenTypes.data,
+              identificationTypes
             ),
           ),
           catchError((error) =>
