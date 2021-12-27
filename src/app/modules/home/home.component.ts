@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { IDocumentType } from '@app/models/document-types';
-import { Languages } from '@app/store/actions/app.actions';
-import { AppFacade } from '@app/store/facades/app.facade';
-import { IIdentifiTypesState } from '@app/store/state/app.state';
+import { Languages } from '@store/actions/app.actions';
+import { AppFacade } from '@store/facades/app.facade';
+import { IIdentifiTypesState } from '@store/state/app.state';
 import { TranslateService } from '@ngx-translate/core';
 import { ValidationService } from '@services/validation.service';
 import { Observable, Subject } from 'rxjs';
 import { take, takeUntil } from "rxjs/operators";
+import { ModalService } from '@theme/service/modal.service';
 import { FormValidationMessages } from './models/home';
 
 @Component({
@@ -28,6 +29,7 @@ export class HomeComponent implements OnInit {
   constructor(private validationService: ValidationService,
     public translate: TranslateService,
     private appFacade: AppFacade,
+    private modalService: ModalService
   ) {
     this.selectLanguage$
       .pipe(takeUntil(this.destroy$))
@@ -39,6 +41,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // this.openModal("results-modal");
     this.initForm();
     this.getInitialState();
   }
@@ -60,6 +63,11 @@ export class HomeComponent implements OnInit {
       this.loadUserState(promiseDocumentTypes);
     }
   }
+
+  openModal(id: string): void {
+    this.modalService.open(id);
+  }
+
   loadUserState(action: IIdentifiTypesState) {
     this.identificationTypes = action.documenTypes != null ? action.documenTypes.data : [];
     this.chooseDocumentType(this.identificationTypes[0].value);
@@ -146,6 +154,7 @@ export class HomeComponent implements OnInit {
       let value = await this.validationService.getScore(values.identificationType, values.identificationNumber)
         .pipe(takeUntil(this.destroy$)).toPromise();
       this.score = JSON.parse(JSON.stringify(value)).score;
+      this.openModal('fp-modal-example-number-tag');
     }
     this.loading = false;
   }

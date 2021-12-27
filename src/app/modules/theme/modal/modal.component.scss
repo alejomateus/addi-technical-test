@@ -58,7 +58,9 @@
   background-color: #5cb85c;
   color: white;
 }
-
+body.fp-modal-open {
+  overflow: hidden;
+}
 .modal-body {padding: 2px 16px;}
 
 .modal-footer {

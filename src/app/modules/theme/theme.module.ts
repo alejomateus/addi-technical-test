@@ -4,6 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { ModalComponent } from './modal/modal.component';
+import { ModalService } from './service/modal.service';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,9 @@ import { ModalComponent } from './modal/modal.component';
   ],
   imports: [
     CommonModule, FormsModule
+  ],
+  providers: [
+    ModalService
   ]
 })
 export class ThemeModule { }
